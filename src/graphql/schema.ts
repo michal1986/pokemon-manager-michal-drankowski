@@ -33,7 +33,7 @@ export const typeDefs = gql`
   }
 
   type Query {
-    pokemons: [Pokemon!]!
+    pokemons(offset: Int = 0, limit: Int = 50): [Pokemon!]!
     pokemon(id: Int!): Pokemon
   }
 

@@ -7,8 +7,8 @@ import PokemonGrid from "../components/PokemonGrid";
 import { useState, useMemo } from "react";
 
 const GET_POKEMONS = gql`
-  query GetPokemons {
-    pokemons {
+  query GetPokemons($limit: Int!, $offset: Int!) {
+    pokemons(limit: $limit, offset: $offset) {
       id
       name
       type
@@ -35,7 +35,13 @@ interface SearchFilters {
 }
 
 function PokemonsPageContent() {
-  const { data, loading, error } = useQuery(GET_POKEMONS);
+  const [pageSize, setPageSize] = useState(20);
+  const { data, loading, error, refetch } = useQuery(GET_POKEMONS, {
+    variables: {
+      limit: pageSize,
+      offset: 0
+    }
+  });
   const [filters, setFilters] = useState<SearchFilters>({
     name: "",
     minHeight: "",
@@ -43,6 +49,11 @@ function PokemonsPageContent() {
     minWeight: "",
     maxWeight: "",
   });
+
+  const handlePageSizeChange = (newSize: number) => {
+    setPageSize(newSize);
+    refetch({ limit: newSize, offset: 0 });
+  };
 
   // Filter and adapt pokemons data
   const pokemons = useMemo(() => {
@@ -86,7 +97,7 @@ function PokemonsPageContent() {
   return (
     <div className="max-w-5xl mx-auto p-4">
       <PokemonSearchBar onFiltersChange={setFilters} />
-      <PokemonSortBar />
+      <PokemonSortBar pageSize={pageSize} onPageSizeChange={handlePageSizeChange} />
       <PokemonGrid pokemons={pokemons} />
     </div>
   );

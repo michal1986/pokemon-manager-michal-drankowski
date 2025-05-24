@@ -9,8 +9,11 @@ const prisma = new PrismaClient();
 
 export const resolvers = {
   Query: {
-    pokemons: async (): Promise<Pokemon[]> => {
+    pokemons: async (_:unknown, args: {offset:number, limit:number}): Promise<Pokemon[]> => {
+      const { offset = 0, limit = 50 } = args;
       return await prisma.pokemon.findMany({
+        skip: offset,
+        take: limit,
         include: { abilities: true, weaknesses: true },
       });
     },
