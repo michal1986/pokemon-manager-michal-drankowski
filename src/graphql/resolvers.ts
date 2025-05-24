@@ -17,18 +17,21 @@ export const resolvers = {
     },
   },
   Mutation: {
-    createPokemon: async (_: unknown, args: Prisma.PokemonCreateInput): Promise<Pokemon> => {
+    createPokemon: async (_: unknown, args: Prisma.PokemonCreateInput, context: any): Promise<Pokemon> => {
+      if (!context.user) throw new Error('Unauthorized');
       return await prisma.pokemon.create({
         data: args,
       });
     },
-    updatePokemon: async (_: unknown, { id, ...data }: Prisma.PokemonUpdateInput & { id: number }): Promise<Pokemon> => {
+    updatePokemon: async (_: unknown, { id, ...data }: Prisma.PokemonUpdateInput & { id: number }, context: any): Promise<Pokemon> => {
+      if (!context.user) throw new Error('Unauthorized');
       return await prisma.pokemon.update({
         where: { id },
         data,
       });
     },
-    deletePokemon: async (_: unknown, { id }: { id: number }): Promise<boolean> => {
+    deletePokemon: async (_: unknown, { id }: { id: number }, context: any): Promise<boolean> => {
+      if (!context.user) throw new Error('Unauthorized');
       await prisma.pokemon.delete({
         where: { id },
       });

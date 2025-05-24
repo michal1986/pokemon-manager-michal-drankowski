@@ -1,4 +1,6 @@
+"use client";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const typeColors: Record<string, string> = {
   Grass: "bg-green-500",
@@ -16,14 +18,22 @@ export default function PokemonCard({
     id: number;
     name: string;
     number: number;
-    image: string;
     types: string[];
   };
 }) {
+  const router = useRouter();
+  // Generate image src from name
+  const imageSrc = `/${pokemon.name.toLowerCase()}.png`;
   return (
-    <div className="bg-white rounded-lg shadow-md p-4 flex flex-col items-center">
+    <div
+      className="bg-white rounded-lg shadow-md p-4 flex flex-col items-center cursor-pointer hover:shadow-lg transition-shadow"
+      onClick={() => router.push(`/pokemon/${pokemon.id}`)}
+      tabIndex={0}
+      role="button"
+      onKeyDown={e => { if (e.key === 'Enter') router.push(`/pokemon/${pokemon.id}`); }}
+    >
       <Image
-        src={pokemon.image}
+        src={imageSrc}
         alt={pokemon.name}
         width={96}
         height={96}
