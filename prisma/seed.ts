@@ -10,7 +10,17 @@ const pokemonData = [
     trainer: 'Professor Oak',
     height: 70,
     weight: 6.9,
-    image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png'
+    image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png',
+    description: 'A strange seed was planted on its back at birth. The plant sprouts and grows with this Pokémon.',
+    gender: '♂ ♀',
+    hp: 45,
+    attack: 49,
+    defense: 49,
+    specialAttack: 65,
+    specialDefense: 65,
+    speed: 45,
+    abilities: ['Overgrow', 'Chlorophyll'],
+    weaknesses: ['Fire', 'Ice', 'Flying', 'Psychic'],
   },
   {
     name: 'Charmander',
@@ -19,7 +29,17 @@ const pokemonData = [
     trainer: 'Professor Oak',
     height: 60,
     weight: 8.5,
-    image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png'
+    image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png',
+    description: 'It has a preference for hot things. When it rains, steam is said to spout from the tip of its tail.',
+    gender: '♂ ♀',
+    hp: 39,
+    attack: 52,
+    defense: 43,
+    specialAttack: 60,
+    specialDefense: 50,
+    speed: 65,
+    abilities: ['Blaze', 'Solar Power'],
+    weaknesses: ['Water', 'Ground', 'Rock'],
   },
   {
     name: 'Squirtle',
@@ -28,7 +48,17 @@ const pokemonData = [
     trainer: 'Professor Oak',
     height: 50,
     weight: 9.0,
-    image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png'
+    image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png',
+    description: 'Shoots water at prey while in the water. Withdraws into its shell when in danger.',
+    gender: '♂ ♀',
+    hp: 44,
+    attack: 48,
+    defense: 65,
+    specialAttack: 50,
+    specialDefense: 64,
+    speed: 43,
+    abilities: [],
+    weaknesses: [],
   },
   {
     name: 'Pikachu',
@@ -37,7 +67,17 @@ const pokemonData = [
     trainer: 'Ash',
     height: 40,
     weight: 6.0,
-    image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png'
+    image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png',
+    description: 'When several of these Pokémon gather, their electricity could build and cause lightning storms.',
+    gender: '♂ ♀',
+    hp: 35,
+    attack: 55,
+    defense: 30,
+    specialAttack: 50,
+    specialDefense: 40,
+    speed: 90,
+    abilities: ['Static', 'Lightning Rod'],
+    weaknesses: ['Ground'],
   },
   {
     name: 'Jigglypuff',
@@ -46,7 +86,17 @@ const pokemonData = [
     trainer: 'Misty',
     height: 50,
     weight: 5.5,
-    image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/39.png'
+    image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/39.png',
+    description: 'Uses its alluring eyes to enrapture its foe. It then sings a pleasing melody that lulls the foe to sleep.',
+    gender: '♂ ♀',
+    hp: 115,
+    attack: 45,
+    defense: 20,
+    specialAttack: 25,
+    specialDefense: 25,
+    speed: 20,
+    abilities: ['Cute Charm', 'Competitive'],
+    weaknesses: ['Fighting'],
   },
   {
     name: 'Meowth',
@@ -55,7 +105,17 @@ const pokemonData = [
     trainer: 'Team Rocket',
     height: 40,
     weight: 4.2,
-    image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/52.png'
+    image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/52.png',
+    description: 'Adores circular objects. Wanders the streets on a nightly basis to look for dropped loose change.',
+    gender: '♂ ♀',
+    hp: 40,
+    attack: 35,
+    defense: 30,
+    specialAttack: 20,
+    specialDefense: 20,
+    speed: 50,
+    abilities: ['Pickup', 'Technician'],
+    weaknesses: ['Fighting'],
   },
   {
     name: 'Psyduck',
@@ -64,7 +124,17 @@ const pokemonData = [
     trainer: 'Misty',
     height: 80,
     weight: 19.6,
-    image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/54.png'
+    image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/54.png',
+    description: 'While lulling its enemies with its vacant look, this wily Pokémon will use psychokinetic powers.',
+    gender: '♂ ♀',
+    hp: 50,
+    attack: 52,
+    defense: 48,
+    specialAttack: 65,
+    specialDefense: 50,
+    speed: 55,
+    abilities: ['Damp', 'Cloud Nine'],
+    weaknesses: ['Electric', 'Grass'],
   },
   {
     name: 'Growlithe',
@@ -73,7 +143,17 @@ const pokemonData = [
     trainer: 'Officer Jenny',
     height: 70,
     weight: 19.0,
-    image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/58.png'
+    image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/58.png',
+    description: 'Very protective of its territory. It will bark and bite to repel intruders from its space.',
+    gender: '♂ ♀',
+    hp: 55,
+    attack: 70,
+    defense: 45,
+    specialAttack: 70,
+    specialDefense: 50,
+    speed: 60,
+    abilities: ['Intimidate', 'Flash Fire'],
+    weaknesses: ['Water', 'Ground', 'Rock'],
   },
   {
     name: 'Abra',
@@ -82,7 +162,17 @@ const pokemonData = [
     trainer: 'Sabrina',
     height: 90,
     weight: 19.5,
-    image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/63.png'
+    image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/63.png',
+    description: 'Sleeps 18 hours a day. If it senses danger, it will teleport itself to safety even as it sleeps.',
+    gender: '♂ ♀',
+    hp: 25,
+    attack: 20,
+    defense: 15,
+    specialAttack: 105,
+    specialDefense: 55,
+    speed: 90,
+    abilities: ['Synchronize', 'Inner Focus'],
+    weaknesses: ['Psychic'],
   },
   {
     name: 'Machop',
@@ -91,7 +181,17 @@ const pokemonData = [
     trainer: 'Bruno',
     height: 80,
     weight: 19.5,
-    image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/66.png'
+    image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/66.png',
+    description: 'Loves to build its muscles. It trains in all styles of martial arts to become even stronger.',
+    gender: '♂ ♀',
+    hp: 30,
+    attack: 80,
+    defense: 35,
+    specialAttack: 35,
+    specialDefense: 45,
+    speed: 35,
+    abilities: ['Guts', 'No Guard'],
+    weaknesses: ['Flying', 'Psychic'],
   },
   {
     name: 'Geodude',
@@ -100,7 +200,17 @@ const pokemonData = [
     trainer: 'Brock',
     height: 40,
     weight: 20.0,
-    image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/74.png'
+    image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/74.png',
+    description: 'Found in fields and mountains. Mistaking them for boulders, people often step or trip on them.',
+    gender: '♂ ♀',
+    hp: 40,
+    attack: 80,
+    defense: 100,
+    specialAttack: 30,
+    specialDefense: 30,
+    speed: 20,
+    abilities: ['Sturdy', 'Rock Head'],
+    weaknesses: ['Water', 'Grass', 'Fighting', 'Ground'],
   },
   {
     name: 'Gastly',
@@ -109,7 +219,17 @@ const pokemonData = [
     trainer: 'Agatha',
     height: 130,
     weight: 0.1,
-    image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/92.png'
+    image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/92.png',
+    description: 'Almost invisible, this gaseous Pokémon cloaks the target and puts it to sleep without notice.',
+    gender: '♂ ♀',
+    hp: 30,
+    attack: 35,
+    defense: 30,
+    specialAttack: 100,
+    specialDefense: 85,
+    speed: 80,
+    abilities: ['Levitate'],
+    weaknesses: ['Ghost', 'Dark'],
   },
   {
     name: 'Onix',
@@ -118,7 +238,17 @@ const pokemonData = [
     trainer: 'Brock',
     height: 880,
     weight: 210.0,
-    image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/95.png'
+    image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/95.png',
+    description: 'As it grows, the stone portions of its body harden to become similar to a diamond, but colored black.',
+    gender: '♂ ♀',
+    hp: 35,
+    attack: 45,
+    defense: 160,
+    specialAttack: 30,
+    specialDefense: 45,
+    speed: 70,
+    abilities: ['Rock Head', 'Sturdy'],
+    weaknesses: ['Water', 'Grass', 'Fighting', 'Ground'],
   },
   {
     name: 'Drowzee',
@@ -127,7 +257,17 @@ const pokemonData = [
     trainer: 'Sabrina',
     height: 100,
     weight: 32.4,
-    image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/96.png'
+    image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/96.png',
+    description: 'Puts enemies to sleep then eats their dreams. Occasionally gets sick from eating bad dreams.',
+    gender: '♂ ♀',
+    hp: 60,
+    attack: 48,
+    defense: 45,
+    specialAttack: 90,
+    specialDefense: 85,
+    speed: 42,
+    abilities: ['Insomnia', 'Forewarn'],
+    weaknesses: ['Psychic'],
   },
   {
     name: 'Krabby',
@@ -136,7 +276,17 @@ const pokemonData = [
     trainer: 'Misty',
     height: 40,
     weight: 6.5,
-    image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/98.png'
+    image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/98.png',
+    description: 'Its pincers are not only powerful weapons, they are used for balance when walking sideways.',
+    gender: '♂ ♀',
+    hp: 30,
+    attack: 105,
+    defense: 90,
+    specialAttack: 25,
+    specialDefense: 25,
+    speed: 50,
+    abilities: ['Hyper Cutter', 'Shell Armor'],
+    weaknesses: ['Electric', 'Grass'],
   },
   {
     name: 'Voltorb',
@@ -145,7 +295,17 @@ const pokemonData = [
     trainer: 'Lt. Surge',
     height: 50,
     weight: 10.4,
-    image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/100.png'
+    image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/100.png',
+    description: 'Usually found in power plants. Easily mistaken for a Poké Ball, it has zapped many people.',
+    gender: '♂ ♀',
+    hp: 40,
+    attack: 30,
+    defense: 50,
+    specialAttack: 55,
+    specialDefense: 55,
+    speed: 100,
+    abilities: ['Soundproof', 'Static'],
+    weaknesses: ['Ground'],
   },
   {
     name: 'Exeggcute',
@@ -154,7 +314,17 @@ const pokemonData = [
     trainer: 'Erika',
     height: 40,
     weight: 2.5,
-    image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/102.png'
+    image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/102.png',
+    description: 'Often mistaken for eggs. When disturbed, they quickly gather and attack in swarms.',
+    gender: '♂ ♀',
+    hp: 65,
+    attack: 50,
+    defense: 55,
+    specialAttack: 40,
+    specialDefense: 75,
+    speed: 15,
+    abilities: ['Chlorophyll', 'Harvest'],
+    weaknesses: ['Fire', 'Ice', 'Flying', 'Psychic'],
   },
   {
     name: 'Cubone',
@@ -163,7 +333,17 @@ const pokemonData = [
     trainer: 'Giovanni',
     height: 40,
     weight: 6.5,
-    image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/104.png'
+    image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/104.png',
+    description: 'Wears the skull of its deceased mother. Its cries echo inside the skull and come out as a sad melody.',
+    gender: '♂ ♀',
+    hp: 50,
+    attack: 52,
+    defense: 48,
+    specialAttack: 35,
+    specialDefense: 50,
+    speed: 35,
+    abilities: ['Rock Head', 'Lightning Rod'],
+    weaknesses: ['Water', 'Grass', 'Ice'],
   },
   {
     name: 'Hitmonlee',
@@ -172,7 +352,17 @@ const pokemonData = [
     trainer: 'Bruno',
     height: 150,
     weight: 49.8,
-    image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/106.png'
+    image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/106.png',
+    description: 'When in a hurry, its legs lengthen progressively. It runs smoothly with extra long, loping strides.',
+    gender: '♂ ♀',
+    hp: 50,
+    attack: 120,
+    defense: 53,
+    specialAttack: 35,
+    specialDefense: 110,
+    speed: 87,
+    abilities: ['Reckless', 'Unnerve'],
+    weaknesses: ['Psychic', 'Flying'],
   },
   {
     name: 'Lickitung',
@@ -181,7 +371,17 @@ const pokemonData = [
     trainer: 'Team Rocket',
     height: 120,
     weight: 65.5,
-    image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/108.png'
+    image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/108.png',
+    description: 'Its tongue can be extended like a chameleon. It leaves a tingling sensation when it licks enemies.',
+    gender: '♂ ♀',
+    hp: 90,
+    attack: 55,
+    defense: 55,
+    specialAttack: 30,
+    specialDefense: 70,
+    speed: 30,
+    abilities: ['Own Tempo', 'Oblivious'],
+    weaknesses: ['Fighting'],
   }
 ];
 
@@ -189,14 +389,33 @@ async function main() {
   console.log('Start seeding...');
 
   try {
-    // Create all pokemons
     for (const pokemon of pokemonData) {
-      const result = await prisma.pokemon.create({
-        data: pokemon,
+      const { abilities, weaknesses, ...pokemonFields } = pokemon;
+      const createdPokemon = await prisma.pokemon.create({
+        data: pokemonFields,
       });
-      console.log(`Created pokemon with id: ${result.id} - ${pokemon.name}`);
+      if (abilities) {
+        for (const ability of abilities) {
+          await prisma.ability.create({
+            data: {
+              name: ability,
+              pokemonId: createdPokemon.id,
+            },
+          });
+        }
+      }
+      if (weaknesses) {
+        for (const weakness of weaknesses) {
+          await prisma.weakness.create({
+            data: {
+              name: weakness,
+              pokemonId: createdPokemon.id,
+            },
+          });
+        }
+      }
+      console.log(`Created pokemon with id: ${createdPokemon.id} - ${pokemon.name}`);
     }
-
     console.log('Seeding finished.');
   } catch (error) {
     console.error('Error during seeding:', error);

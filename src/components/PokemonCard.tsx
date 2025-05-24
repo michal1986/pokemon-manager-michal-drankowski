@@ -8,7 +8,19 @@ const typeColors: Record<string, string> = {
   Fire: "bg-orange-500",
   Water: "bg-blue-500",
   Flying: "bg-sky-400",
-  // Add more as needed
+  Electric: "bg-yellow-400",
+  Psychic: "bg-purple-500",
+  Ice: "bg-blue-300",
+  Dragon: "bg-indigo-600",
+  Dark: "bg-gray-800",
+  Fairy: "bg-pink-400",
+  Normal: "bg-gray-500",
+  Fighting: "bg-red-600",
+  Ground: "bg-yellow-600",
+  Rock: "bg-yellow-800",
+  Ghost: "bg-purple-800",
+  Bug: "bg-green-600",
+  Steel: "bg-gray-400",
 };
 
 export default function PokemonCard({
@@ -22,8 +34,8 @@ export default function PokemonCard({
   };
 }) {
   const router = useRouter();
-  // Generate image src from name
   const imageSrc = `/${pokemon.name.toLowerCase()}.png`;
+
   return (
     <div
       className="bg-white rounded-lg shadow-md p-4 flex flex-col items-center cursor-pointer hover:shadow-lg transition-shadow"
@@ -37,7 +49,7 @@ export default function PokemonCard({
         alt={pokemon.name}
         width={96}
         height={96}
-        className="w-24 h-24"
+        className="w-24 h-24 object-contain"
       />
       <span className="text-gray-400 text-xs mt-2">
         #{pokemon.number.toString().padStart(4, "0")}

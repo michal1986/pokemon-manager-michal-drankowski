@@ -13,6 +13,25 @@ const GET_POKEMON = gql`
       type
       level
       trainer
+      description
+      height
+      weight
+      gender
+      image
+      hp
+      attack
+      defense
+      specialAttack
+      specialDefense
+      speed
+      abilities {
+        id
+        name
+      }
+      weaknesses {
+        id
+        name
+      }
     }
   }
 `;
@@ -30,15 +49,16 @@ function PokemonDetailContent() {
     ...data.pokemon,
     number: data.pokemon.id,
     types: Array.isArray(data.pokemon.type) ? data.pokemon.type : [data.pokemon.type],
-    image: `/${data.pokemon.name.toLowerCase()}.png`,
-    // You can add more fields or mock them as needed for the detail component
-    description: "No description available.",
-    height: "?",
-    weight: "?",
-    gender: "?",
-    abilities: [],
-    weaknesses: [],
-    stats: [],
+    abilities: data.pokemon.abilities.map((a: { name: string }) => a.name),
+    weaknesses: data.pokemon.weaknesses.map((w: { name: string }) => w.name),
+    stats: [
+      { name: "HP", value: data.pokemon.hp },
+      { name: "Attack", value: data.pokemon.attack },
+      { name: "Defense", value: data.pokemon.defense },
+      { name: "Special Attack", value: data.pokemon.specialAttack },
+      { name: "Special Defense", value: data.pokemon.specialDefense },
+      { name: "Speed", value: data.pokemon.speed },
+    ],
   };
 
   return (

@@ -1,18 +1,23 @@
 import { PrismaClient } from '@prisma/client';
 import type { Prisma } from '.prisma/client';
 
-type Pokemon = Prisma.PokemonGetPayload<{}>;
+type Pokemon = Prisma.PokemonGetPayload<{
+  include: { abilities: true; weaknesses: true }
+}>;
 
 const prisma = new PrismaClient();
 
 export const resolvers = {
   Query: {
     pokemons: async (): Promise<Pokemon[]> => {
-      return await prisma.pokemon.findMany();
+      return await prisma.pokemon.findMany({
+        include: { abilities: true, weaknesses: true },
+      });
     },
     pokemon: async (_: unknown, { id }: { id: number }): Promise<Pokemon | null> => {
       return await prisma.pokemon.findUnique({
         where: { id },
+        include: { abilities: true, weaknesses: true },
       });
     },
   },
@@ -21,6 +26,7 @@ export const resolvers = {
       if (!context.user) throw new Error('Unauthorized');
       return await prisma.pokemon.create({
         data: args,
+        include: { abilities: true, weaknesses: true },
       });
     },
     updatePokemon: async (_: unknown, { id, ...data }: Prisma.PokemonUpdateInput & { id: number }, context: any): Promise<Pokemon> => {
@@ -28,6 +34,7 @@ export const resolvers = {
       return await prisma.pokemon.update({
         where: { id },
         data,
+        include: { abilities: true, weaknesses: true },
       });
     },
     deletePokemon: async (_: unknown, { id }: { id: number }, context: any): Promise<boolean> => {

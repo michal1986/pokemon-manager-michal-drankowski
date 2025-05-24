@@ -8,13 +8,36 @@ datasource db {
 }
 
 model Pokemon {
-  id      Int     @id @default(autoincrement())
-  name    String
-  type    String
-  level   Int
-  trainer String?
-  height  Int     @default(0)
-  weight  Int     @default(0)
-  image   String  @default("")
+  id              Int         @id @default(autoincrement())
+  name            String
+  type            String
+  level           Int
+  trainer         String?
+  height          Int?
+  weight          Float?
+  image           String      @default("")
+  description     String?
+  gender          String?
+  hp              Int?
+  attack          Int?
+  defense         Int?
+  specialAttack   Int?
+  specialDefense  Int?
+  speed           Int?
+  abilities       Ability[]  
+  weaknesses      Weakness[]
 }
 
+model Ability {
+  id        Int      @id @default(autoincrement())
+  name      String
+  pokemon   Pokemon  @relation(fields: [pokemonId], references: [id])
+  pokemonId Int
+}
+
+model Weakness {
+  id        Int      @id @default(autoincrement())
+  name      String
+  pokemon   Pokemon  @relation(fields: [pokemonId], references: [id])
+  pokemonId Int
+}
