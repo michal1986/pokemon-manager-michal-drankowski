@@ -6,7 +6,7 @@
     "dev": "next dev -p 3130",
     "build": "next build",
     "start": "next start -p 3130",
-    "lint": "next lint"
+    "lint": "eslint \"src/**/*.{ts,tsx}\""
   },
   "prisma": {
     "seed": "ts-node prisma/seed.ts"
@@ -16,8 +16,10 @@
     "@apollo/server": "^4.12.1",
     "@as-integrations/next": "^3.2.0",
     "@prisma/client": "^6.8.2",
+    "@types/jsonwebtoken": "^9.0.9",
     "apollo-server-micro": "^3.13.0",
     "graphql": "^16.11.0",
+    "jsonwebtoken": "^9.0.2",
     "next": "15.3.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
@@ -28,8 +30,15 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@typescript-eslint/eslint-plugin": "^8.32.1",
+    "@typescript-eslint/parser": "^8.32.1",
     "eslint": "^9",
     "eslint-config-next": "15.3.2",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-prettier": "^5.4.0",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "prettier": "^3.5.3",
     "prisma": "^6.8.2",
     "tailwindcss": "^4",
     "ts-node": "^10.9.2",

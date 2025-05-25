@@ -21,7 +21,22 @@ const typeColors: Record<string, string> = {
   Steel: "bg-gray-400",
 };
 
-export default function PokemonDetail({ pokemon }: { pokemon: any }) {
+
+interface PokemonDetailProps {
+  pokemon: {
+    name: string;
+    description: string;
+    height: number | null;
+    weight: number | null;
+    gender: string;
+    level: number;
+    types: string[];
+    abilities: { name: string }[];
+    weaknesses: { name: string }[];
+  };
+}
+
+export default function PokemonDetail({ pokemon }: PokemonDetailProps) {
   const imageSrc = `/${pokemon.name.toLowerCase()}.png`;
 
   return (
@@ -63,9 +78,9 @@ export default function PokemonDetail({ pokemon }: { pokemon: any }) {
         <div className="mb-4">
           <span className="font-bold block mb-2">Type:</span>
           <div className="flex flex-wrap gap-2">
-            {pokemon.types.map((type: string) => (
+            {pokemon.types.map((type, index) => (
               <span
-                key={type}
+                key={`${type}-${index}`}
                 className={`px-3 py-1 rounded-full text-sm font-semibold text-white ${typeColors[type] || "bg-gray-400"}`}
               >
                 {type}
@@ -77,12 +92,12 @@ export default function PokemonDetail({ pokemon }: { pokemon: any }) {
         <div className="mb-4">
           <span className="font-bold block mb-2">Abilities:</span>
           <div className="flex flex-wrap gap-2">
-            {pokemon.abilities.map((ability: string) => (
+            {pokemon.abilities.map((ability, index) => (
               <span
-                key={ability}
+                key={`${ability.name}-${index}`}
                 className="px-3 py-1 rounded-full text-sm font-semibold bg-blue-100 text-blue-800"
               >
-                {ability}
+                {ability.name}
               </span>
             ))}
           </div>
@@ -91,12 +106,12 @@ export default function PokemonDetail({ pokemon }: { pokemon: any }) {
         <div>
           <span className="font-bold block mb-2">Weaknesses:</span>
           <div className="flex flex-wrap gap-2">
-            {pokemon.weaknesses.map((weak: string) => (
+            {pokemon.weaknesses.map((weak, index) => (
               <span
-                key={weak}
-                className={`px-3 py-1 rounded-full text-sm font-semibold text-white ${typeColors[weak] || "bg-gray-400"}`}
+                key={`${weak.name}-${index}`}
+                className={`px-3 py-1 rounded-full text-sm font-semibold text-white ${typeColors[weak.name] || "bg-gray-400"}`}
               >
-                {weak}
+                {weak.name}
               </span>
             ))}
           </div>

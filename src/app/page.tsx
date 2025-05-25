@@ -5,6 +5,16 @@ import PokemonSearchBar from "../components/PokemonSearchBar";
 import PokemonSortBar from "../components/PokemonSortBar";
 import PokemonGrid from "../components/PokemonGrid";
 import { useState, useMemo } from "react";
+import type { Prisma } from '.prisma/client';
+
+
+type Pokemon = Prisma.PokemonGetPayload<{
+  include: { abilities: true; weaknesses: true }
+}>;
+
+interface GetPokemonsResponse {
+  pokemons: Pokemon[];
+}
 
 const GET_POKEMONS = gql`
   query GetPokemons($limit: Int!, $offset: Int!) {
@@ -34,9 +44,15 @@ interface SearchFilters {
   maxWeight: string;
 }
 
+
+export interface AdaptedPokemon extends Omit<Pokemon, 'type'> {
+  number: string;
+  types: string[];
+}
+
 function PokemonsPageContent() {
   const [pageSize, setPageSize] = useState(20);
-  const { data, loading, error, refetch } = useQuery(GET_POKEMONS, {
+  const { data, loading, error, refetch } = useQuery<GetPokemonsResponse>(GET_POKEMONS, {
     variables: {
       limit: pageSize,
       offset: 0
@@ -60,33 +76,26 @@ function PokemonsPageContent() {
     if (!data?.pokemons) return [];
     
     return data.pokemons
-      .filter((p: any) => {
-        // Name filter
+      .filter((p: Pokemon) => {
         if (filters.name && !p.name.toLowerCase().includes(filters.name.toLowerCase())) {
           return false;
         }
 
-        // Height range filter
-        if (filters.minHeight && p.height < parseFloat(filters.minHeight)) {
-          return false;
-        }
-        if (filters.maxHeight && p.height > parseFloat(filters.maxHeight)) {
-          return false;
+        if (p.height !== null) {
+          if (filters.minHeight && p.height < parseFloat(filters.minHeight)) return false;
+          if (filters.maxHeight && p.height > parseFloat(filters.maxHeight)) return false;
         }
 
-        // Weight range filter
-        if (filters.minWeight && p.weight < parseFloat(filters.minWeight)) {
-          return false;
-        }
-        if (filters.maxWeight && p.weight > parseFloat(filters.maxWeight)) {
-          return false;
+        if (p.weight !== null) {
+          if (filters.minWeight && p.weight < parseFloat(filters.minWeight)) return false;
+          if (filters.maxWeight && p.weight > parseFloat(filters.maxWeight)) return false;
         }
 
         return true;
       })
-      .map((p: any) => ({
+      .map((p: Pokemon): AdaptedPokemon => ({
         ...p,
-        number: p.id,
+        number: p.id.toString(),
         types: Array.isArray(p.type) ? p.type : [p.type],
       }));
   }, [data?.pokemons, filters]);

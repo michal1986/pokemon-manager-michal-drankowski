@@ -2,8 +2,14 @@ Information from Michal:
 
 
 So the total development time was more than 4 hours — I think around 10 hours. But I did that on purpose because I really wanted to refresh my knowledge of how GraphQL is properly used.
-So… yeah, it took some time, but I think I’m ready to work with GraphQL now :) 
+So… yeah, it took some time, but I think I'm ready to work with GraphQL now :) 
 
+
+Things to improve:
+
+ - we have authentication done in resolvers, but we have hardcoded password. Ideally we should add User model to schema (and db)
+  - Filtering happening on the frontend side only
+  - We lack that 'Suprise me' button
 
 # Pokemon Manager
 
@@ -19,6 +25,7 @@ docker-compose up -d
 ```bash
 npx prisma generate
 npx prisma migrate dev --name init
+npx prisma db seed
 ```
 
 ### Development
@@ -27,3 +34,35 @@ To view and manage your database:
 npx prisma studio
 ```
 
+# 1. Login to get the token (use terminal commands)
+
+
+curl -X POST http://localhost:3130/api/graphql \
+  -H "Content-Type: application/json" \
+  -d '{
+    "query": "mutation { login(email: \"admin@pokemon.com\", password: \"pokemon123\") { token user { id email } } }"
+  }'
+
+# 2. Create a Pokemon (replace YOUR-TOKEN-HERE with the token from step 1)
+curl -X POST http://localhost:3130/api/graphql \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer {YOUR-TOKEN-HERE}" \
+  -d '{
+    "query": "mutation { createPokemon(name: \"Axew\", type: \"Dragon\", level: 5, trainer: \"Iris\", height: 60, weight: 18, image: \"axew.png\", description: \"A small dragon Pokémon with tusks that can cut through steel\", gender: \"♂\", hp: 46, attack: 87, defense: 60, specialAttack: 30, specialDefense: 40, speed: 57) { id name type } }"
+  }'
+
+# 3. Update a Pokemon (replace {id} with actual Pokemon ID)
+curl -X POST http://localhost:3130/api/graphql \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer {YOUR-TOKEN-HERE}Y" \
+  -d '{
+    "query": "mutation { updatePokemon(id: 22, name:\"Axew\") { id name level } }"
+  }'
+
+# 4. Delete a Pokemon (replace {id} with actual Pokemon ID)
+curl -X POST http://localhost:3130/api/graphql \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer {YOUR-TOKEN-HERE}" \
+  -d '{
+    "query": "mutation { deletePokemon(id: 21) }"
+  }'

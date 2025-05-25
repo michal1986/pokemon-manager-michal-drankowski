@@ -33,7 +33,6 @@ export default function PokemonSearchBar({ onFiltersChange }: PokemonSearchBarPr
     onFiltersChange(newFilters);
   };
 
-  // Update name filter when search input changes
   useEffect(() => {
     handleFilterChange('name', search);
   }, [search]);
@@ -54,7 +53,7 @@ export default function PokemonSearchBar({ onFiltersChange }: PokemonSearchBarPr
           </button>
         </div>
         <div className="bg-green-500 text-white px-6 py-3 rounded-md mt-4 md:mt-0 md:ml-6 text-center">
-          Search for a Pokémon by name or using its National Pokédex number.
+          Search for a Pokemon by name or using its National Pokedex number.
         </div>
       </div>
       <div 

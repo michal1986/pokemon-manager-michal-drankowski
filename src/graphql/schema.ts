@@ -1,6 +1,16 @@
 import { gql } from 'apollo-server-micro';
 
 export const typeDefs = gql`
+  type User {
+    id: Int!
+    email: String!
+  }
+
+  type AuthPayload {
+    token: String!
+    user: User!
+  }
+
   type Ability {
     id: Int!
     name: String!
@@ -38,6 +48,7 @@ export const typeDefs = gql`
   }
 
   type Mutation {
+    login(email: String!, password: String!): AuthPayload!
     createPokemon(
       name: String!,
       type: String!,
