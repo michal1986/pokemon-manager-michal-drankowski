@@ -45,8 +45,8 @@ npx prisma studio
 ```
 
 
-How to use API with terminal cURL
-TIP: if you will name a new pokemon properly, e.g. 'amaura' or 'dottler', there is a big change that image will appear, as we have images in /public pretty much for all of them
+
+TIP: if you will name a new pokemon properly, e.g. 'amaura' or 'dottler', there is a big chance that image will appear, as we have images in /public pretty much for all of them
 
 # 1. Login to get the token (use terminal commands)
 
