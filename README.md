@@ -8,8 +8,9 @@ So… yeah, it took some time, but I think I'm ready to work with GraphQL now :)
 Things to improve:
 
  - we have authentication done in resolvers, but we have hardcoded password. Ideally we should add User model to schema (and db)
-  - Filtering happening on the frontend side only
+  - Filtering & sorting happening on the frontend side only
   - We lack that 'Suprise me' button
+  - limiting pokemons happening on the backend side
 
 # Pokemon Manager
 
@@ -33,6 +34,10 @@ To view and manage your database:
 ```bash
 npx prisma studio
 ```
+
+
+How to use API with terminal cURL
+TIP: if you will name a new pokemon properly, e.g. 'amaura' or 'dottler', there is a big change that image will appear, as we have images in /public pretty much for all of them
 
 # 1. Login to get the token (use terminal commands)
 
