@@ -11,6 +11,7 @@ Things to improve:
   - Filtering & sorting happening on the frontend side only
   - We lack that 'Suprise me' button
   - limiting pokemons happening on the backend side
+  - totally forgot to add possibility to search by Pokedex number :) 
 
 # Pokemon Manager
 
