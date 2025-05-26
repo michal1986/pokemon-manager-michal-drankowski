@@ -30,6 +30,14 @@ npx prisma migrate dev --name init
 npx prisma db seed
 ```
 
+
+3. Start app in http://192.168.1.101:3130/
+```
+npm run dev
+```
+
+
+
 ### Development
 To view and manage your database:
 ```bash
